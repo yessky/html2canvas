@@ -84,7 +84,12 @@ export const resolvePseudoContent = (
         return null;
     }
 
-    const tokens = parseContent(style.content);
+    let content = style.content;
+    // MacOS Safari 11, getComputedStyle(el, ':before').content got non-quotes content.
+    if ('\'"'.indexOf(content.charAt(0)) === -1) {
+        content = JSON.stringify(content);
+    }
+    const tokens = parseContent(content);
 
     const len = tokens.length;
     const contentItems: Array<PseudoContentItem> = [];
