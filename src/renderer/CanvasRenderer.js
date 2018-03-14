@@ -213,7 +213,12 @@ export default class CanvasRenderer implements RenderTarget<HTMLCanvasElement> {
             font.fontVariant,
             font.fontWeight,
             font.fontSize,
-            font.fontFamily
+            // Fix a strange Window7/IE11 bug
+            font.fontFamily.indexOf(',') > -1
+                ? font.fontFamily
+                : '\'"'.indexOf(font.fontFamily.charAt(0)) > -1
+                    ? font.fontFamily.replace(/['"]/g, '')
+                    : JSON.stringify(font.fontFamily)
         ].join(' ');
 
         textBounds.forEach(text => {
