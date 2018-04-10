@@ -1,5 +1,13 @@
 ### Changelog ###
 
+#### v1.0.0-alpha.12 - 5.4.2018 ####
+ * Fix white space appearing on element rendering (Fix #1438)
+ * Reset canvas transform on finish (Fix #1494)
+
+#### v1.0.0-alpha.11 - 1.4.2018 ####
+ * Fix IE11 member not found error 
+ * Support blob image resources in non-foreignObjectRendering mode
+
 #### v1.0.0-alpha.10 - 15.2.2018 ####
  * Re-introduce `onclone` option (Fix #1434)
  * Add `ignoreElements` predicate function option
